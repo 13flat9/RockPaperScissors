@@ -53,9 +53,9 @@
     function game() {
         let compScore = 0;
         let playerScore = 0;
-        let playerSelection = getSign();
-        let computerSelection = computerPlay();
         for (i = 0; i < 5; i++) {
+            let playerSelection = getSign();
+            let computerSelection = computerPlay();
             let result = undefined;
             result = playRound(playerSelection, computerSelection);
             if (result==1) {
@@ -65,8 +65,12 @@
             else if (result==-1) {
                 compScore++;
                 console.log("Computer wins this round");
+            }
+            else {
+                console.log("This round is a tie")
+            }
         }
-        }
+        
         if (compScore > playerScore) {
             console.log("You lost! Score: " + playerScore + "-" + compScore);
         }
